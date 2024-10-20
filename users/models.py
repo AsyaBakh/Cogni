@@ -20,8 +20,8 @@ class CustomUser(AbstractUser):
   password = models.CharField(max_length=45)
   image = models.ImageField(upload_to='img/%Y/%m/%d/', blank=True)
   type_mbti = models.CharField(max_length=4, blank=True)
-  id_role = models.ForeignKey(Role, on_delete=models.CASCADE)
-  id_MBTI_type = models.ForeignKey(MBTI_type, on_delete=models.CASCADE)
+  id_role = models.ForeignKey(Role, on_delete=models.CASCADE, null=True, blank=True)
+  id_MBTI_type = models.ForeignKey(MBTI_type, on_delete=models.CASCADE, null=True, blank=True)
 
   groups = models.ManyToManyField(
     'auth.Group',
